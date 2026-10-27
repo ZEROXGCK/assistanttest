@@ -113,7 +113,7 @@ function quit(){const u=qs.length-an.filter(x=>x!=null).length;if(confirm(u?`อ
 function bk(id){BK.has(id)?BK.delete(id):BK.add(id);sv('ktbk',[...BK]);show()}
 function pick(k){an[i]=k;if(mode=='now'&&k===Q[qs[i]][3]){M.add(qs[i]);sv('ktm',[...M])}show()}
 function mv(d){i+=d;show();scrollTo(0,0)}
-function end(){const u=qs.length-an.filter(x=>x!=null).length;if(u&&!confirm(`ยังไม่ได้ตอบ ${u} ข้อ ส่งคำตอบเลยไหม`))return;stop();tt=Math.floor((Date.now()-t0)/1000);
+function end(){const u=qs.length-an.filter(x=>x!=null).length;if(u&&!confirm(`ยังไม่ได้ตอบ ${u} ข้อ ส่งเลยไหม`))return;stop();tt=Math.floor((Date.now()-t0)/1000);
 qs.forEach((x,k)=>{if(an[k]===Q[x][3])M.add(x)});sv('ktm',[...M]);flt=0;rev()}
 function rev(){const r=qs.filter((x,k)=>an[k]===Q[x][3]).length,n=qs.length,pc=Math.round(r/n*100),col=pc>=60?'var(--ok)':'var(--no)',msg=pc>=80?'เยี่ยมมาก! 🎉':pc>=60?'ผ่านเกณฑ์แล้ว 👍':'อีกนิดเดียว สู้ต่อ 💪';
 A.innerHTML=`<div class="card res fade"><div class="rg" style="background:conic-gradient(${col} ${pc*3.6}deg,var(--b) 0)"><div><span>${pc}%<small>${r}/${n} ข้อ</small></span></div></div><b>${msg}</b><div class="st"><div><b class="ok">${r}</b><span class="m">ถูก</span></div><div><b class="no">${n-r}</b><span class="m">ผิด/ว่าง</span></div><div><b>${mmss(tt)}</b><span class="m">เวลา</span></div></div></div>
